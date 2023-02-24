@@ -213,12 +213,16 @@ env.make()
 env.render()
 """
 
+""" - VIEW MAZE CREATION - """
+
 env = CreateMaze()
 nrow, ncol = np.random.randint(20, 35),  np.random.randint(20, 35)
 env.new_maze(nrow, ncol)
 env.make()
 env.render()
 
+
+""" - DFS EXAMPLE - """
 wall = 'w'
 visited = dict()
 sample_maze = env.get_maze()
