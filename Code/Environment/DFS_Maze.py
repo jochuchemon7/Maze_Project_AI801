@@ -54,6 +54,20 @@ if demo_found:
     ani = animation.ArtistAnimation(fig, img, interval=20, blit=True, repeat_delay=0)
     plt.show()
 
+# - ALTERNATIVE ANIMATION VIEW -
+if demo_found:
+    demo_solution = env.get_maze()
+    demo_solution[env.get_target_node()[0], env.get_target_node()[1]] = 2
+    fig = plt.figure('DFS')
+    img = []
+    for cell in new_order:
+        if demo_result[(cell[0], cell[1])]:
+            demo_solution[cell[0], cell[1]] = 3
+            img.append([plt.imshow(demo_solution)])
+
+    ani = animation.ArtistAnimation(fig, img, interval=20, blit=True, repeat_delay=0)
+    plt.show()
+    
 plt.imshow(demo_solution)
 
 
