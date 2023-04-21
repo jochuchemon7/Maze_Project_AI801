@@ -1,4 +1,4 @@
-Here is the code used to create our maze environment for our AI801 class project.
+Here I've added all updated files.
+The BFS is finished, and I've changed the visuals to the updated version for each.
 
-Update(4/3/2023): Hi guys so the final_maze.py is is now changed to MazeEnv.py so you can just import MazeEnv easily and DFS_Maze is the standalone DFS example with MazeEnv instation, DFS algorithm, DFS call and animation.
-
+We still need up fix A* and add Reinforced Learning.
