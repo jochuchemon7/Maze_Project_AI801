@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Randomized Prim's Algorithm https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Kruskal's_algorithm
+
 class CreateMaze:
     def __init__(self, row=20, col=20):
         self.nrow, self.ncol = row, col
