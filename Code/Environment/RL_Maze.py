@@ -139,17 +139,17 @@ if isAnimated:
     plt.show()
 
 
-""" Plotting the Loss result from every Epoch """  # When Using random mode layout loss does not find convergence
+""" Plotting the Loss result from every Epoch """  
 plt.plot(list(range(len(losses))), losses)
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
 
-""" Plotting the Rewards result from every Epoch """  # When Using random mode layout loss does not find convergence
+""" Plotting the Rewards result from every Epoch """  
 plt.plot(list(range(len(rewards))), rewards[:len(rewards)])
 plt.xlabel('Epochs')
 plt.ylabel('Reward')
 
-""" Plotting the Episode length result from every Epoch """  # When Using random mode layout loss does not find convergence
+""" Plotting the Episode length result from every Epoch """  
 plt.plot(list(range(len(total_moves))), list(total_moves.values()))
 plt.xlabel('Epochs')
 plt.ylabel('Moves')
