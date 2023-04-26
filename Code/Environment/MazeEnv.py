@@ -4,6 +4,17 @@ import matplotlib.pyplot as plt
 
 # Randomized Prim's Algorithm https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Kruskal's_algorithm
 
+class MazeObject:
+    def __init__(self, maze, start_node, target_node, walls):
+        self.maze = maze #name of the piece
+        self.start_node = start_node #an ASCII character to display on the board
+        self.target_node = target_node #2-tuple e.g. (1,4)
+        self.walls = walls
+    def get_maze(self): return self.maze
+    def get_start_node(self): return self.start_node
+    def get_target_node(self): return self.target_node
+    def get_walls(self): return self.walls    
+
 class CreateMaze:
     def __init__(self, row=20, col=20):
         self.nrow, self.ncol = row, col
@@ -198,6 +209,23 @@ class CreateMaze:
         self.make_walls(self.maze.shape[0], self.maze.shape[1])
         self.create_entrance_exit(self.maze.shape[0], self.maze.shape[1])
         self.print_maze(self.maze)
+        
+    def set_env(self, maze_object):
+        self.maze = maze_object.get_maze()
+        self.start_node = maze_object.get_start_node()
+        self.target_node = maze_object.get_target_node()
+        self.walls = maze_object.get_walls()
+        self.nrow = self.maze.shape[0]
+        self.ncol = self.maze.shape[1]                
+        self.current_steps = 0
+
+    def get_env(self):
+        walls_map = pd.DataFrame(self.maze)
+        walls_map[walls_map == self.passage] = 0
+        walls_map[walls_map == self.wall] = 1
+        final_walls = np.array(walls_map, dtype=np.int32)
+        self.walls = final_walls
+        return MazeObject(self.maze, self.start_node, self.target_node, self.walls)        
 
     def render(self):
         new_maze = np.array(self.maze)
