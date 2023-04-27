@@ -202,7 +202,7 @@ def test_model(model, animated=True):
         i += 1
         if (i > 30):
             if animated:
-                print(f'Game Lost; Too many moves')
+                print(f'Game Lost! Too many moves')
             break
     win = True if status == 1 else False
     return win, final_order
