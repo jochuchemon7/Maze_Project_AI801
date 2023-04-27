@@ -205,7 +205,7 @@ class CreateMaze:
         df[df == self.wall] = 0
         df[df == self.passage] = 1
         new_maze = np.array(df, dtype='int')
-        plt.imshow(new_maze)
+        #plt.imshow(new_maze)
 
 class mazePiece:
     def __init__(self, name, value, position):
@@ -399,4 +399,3 @@ class CreateMazeRL(CreateMaze):
             return -0.7
         else:
             return 0
-

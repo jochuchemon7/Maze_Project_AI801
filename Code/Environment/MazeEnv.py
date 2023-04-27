@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 
 class MazeObject:
     def __init__(self, maze, start_node, target_node, walls):
-        self.maze = maze #name of the piece
-        self.start_node = start_node #an ASCII character to display on the board
+        self.maze = maze 
+        self.start_node = start_node #2-tuple e.g. (1,4)
         self.target_node = target_node #2-tuple e.g. (1,4)
         self.walls = walls
     def get_maze(self): return self.maze
@@ -233,6 +233,4 @@ class CreateMaze:
         df[df == self.wall] = 0
         df[df == self.passage] = 1
         new_maze = np.array(df, dtype='int')
-        plt.imshow(new_maze)
-
-
+        #plt.imshow(new_maze)

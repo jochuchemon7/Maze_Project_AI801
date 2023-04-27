@@ -13,7 +13,7 @@ import torch
 # - MAZE CREATION -
 env = CreateMazeRL()
 nrow, ncol = np.random.randint(20, 35),  np.random.randint(20, 35)
-env.new_maze(nrow=10, ncol=10)   # BEST 11 x 11
+env.new_maze(nrow=9, ncol=9)   # BEST 11 x 11
 env.make()
 env.render()
 trainer_maze = env.get_env()
@@ -36,7 +36,7 @@ loss_fn = torch.nn.MSELoss()
 learning_rate = 1e-3
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 gamma = .9  # Discount Factor
-epsilon = 1  # Epsilon for our selection model
+epsilon = .8  # Epsilon for our selection model
 
 action_set = {0: 'top', 1: 'right', 2: 'bottom', 3: 'left'}
 
@@ -128,7 +128,7 @@ if isAnimated:
     demo_solution = demo_solution.tolist()
     demo_solution[env.start_node[0]][env.start_node[1]] = 0.5
     demo_solution[env.target_node[0]][env.target_node[1]] = 0.5
-    fig = plt.figure('DFS')
+    fig = plt.figure('Reinforcement Learning')
     img = []
 
     for cell in order:
@@ -213,15 +213,13 @@ if isAnimated:
     demo_solution = demo_solution.tolist()
     demo_solution[env.start_node[0]][env.start_node[1]] = 0.5
     demo_solution[env.target_node[0]][env.target_node[1]] = 0.5
-    fig = plt.figure('DFS')
+    fig = plt.figure('Reinforcement Learning')
     img = []
 
     for cell in final_order:
         demo_solution[cell[0]][cell[1]] = 0.7
         img.append([plt.imshow(demo_solution)])
         demo_solution[cell[0]][cell[1]] = 1
-    ani = animation.ArtistAnimation(fig, img, interval=20, blit=True, repeat_delay=0)
+    ani = animation.ArtistAnimation(fig, img, interval=60, blit=True, repeat_delay=0)
     plt.show()
 """ - TESTING MODEL - """
-
-
